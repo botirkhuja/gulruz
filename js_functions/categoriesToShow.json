@@ -1,0 +1,32 @@
+[
+	{
+		"header":"gifts", 
+		"image":"img/gift-548296_1920.jpg", 
+		"function":"loadDoc('categories.php?q=gifts', loadCategoryContent)"
+	},
+	{
+		"header":"flowers", 
+		"image":"img/marriage-168831_1920.jpg", 
+		"function":"loadDoc('categories.php?q=flowers', loadCategoryContent)"
+	},
+	{
+		"header":"parfume", 
+		"image":"img/parfume.jpg", 
+		"function":"loadDoc('categories.php?q=parfume', loadCategoryContent)"
+	},
+	{
+		"header":"paynet", 
+		"image":"img/paynet.jpg", 
+		"function":"loadDoc('categories.php?q=paynet', loadCategoryContent)"
+	},
+	{
+		"header":"chocolate", 
+		"image":"img/chocolate.jpg", 
+		"function":"loadDoc('categories.php?q=chocolate', loadCategoryContent)"
+	},
+	{
+		"header":"beauty", 
+		"image":"img/beauty.jpg", 
+		"function":"loadDoc('categories.php?q=beauty', loadCategoryContent)"
+	},
+]
