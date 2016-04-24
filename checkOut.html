@@ -1,0 +1,129 @@
+<!-- modal -->
+      <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Place your order</h4>
+            </div>
+            <div class="modal-body">
+
+
+              <form class="form-horizontal" name="placeOrderForm" method="" action="" novalidate>
+                <div class="row">
+                  <div class="col-md-6">
+                    <fieldset>
+                      <legend>Payment Information</legend>
+                        <div class="form-group form-group-sm">
+                          <div class="col-xs-6" ng-class="{'has-error': placeOrderForm.firstName.$invalid && placeOrderForm.firstName.$touched, 'has-success': placeOrderForm.firstName.$touched && placeOrderForm.firstName.$valid}">
+                            <input ng-model="payer.firstName" type="text" class="form-control required" id="firstName" placeholder="First name" name="firstName" required />
+                          </div>
+                          <div class="col-xs-6" ng-class="{'has-error': placeOrderForm.lastName.$invalid && placeOrderForm.lastName.$touched, 'has-success': placeOrderForm.lastName.$touched && placeOrderForm.lastName.$valid}">
+                            <input ng-model="payer.lastName" type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName" ng-required="required" />
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-12" ng-class="{'has-error': placeOrderForm.address1.$invalid && placeOrderForm.address1.$touched, 'has-success': placeOrderForm.address1.$touched && placeOrderForm.address1.$valid}">
+                            <input ng-model="payer.address1" type="text" class="form-control" id="address1" placeholder="Address Line 1" name="address1" ng-required="required">
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-12">
+                            <input ng-model="payer.address2" type="text" class="form-control" id="address2" placeholder="Address Line 2" name="address2"/>
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-5" ng-class="{'has-error': placeOrderForm.cityName.$invalid && placeOrderForm.cityName.$touched, 'has-success': placeOrderForm.cityName.$touched && placeOrderForm.cityName.$valid}">
+                            <input ng-model="payer.cityName" type="text" class="form-control" id="cityName" placeholder="City" name="cityName" ng-required="required" />
+                          </div>
+                          <div class="col-xs-5" ng-class="{'has-error': placeOrderForm.countryName.$invalid && placeOrderForm.countryName.$touched, 'has-success': placeOrderForm.countryName.$touched && placeOrderForm.countryName.$valid}">
+                            <input ng-model="payer.countryName" type="text" class="form-control" id="countryName" placeholder="Country" name="countryName" ng-required="required" />
+                          </div>
+                          <div class="col-xs-2" ng-class="{'has-error': placeOrderForm.zipCode.$invalid && placeOrderForm.zipCode.$touched, 'has-success': placeOrderForm.zipCode.$touched && placeOrderForm.zipCode.$valid}">
+                            <input ng-model="payer.zipCode" type="text" class="form-control" id="zipCode" placeholder="Zip" name="zipCode" ng-required="required" />
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-6" ng-class="{'has-error': placeOrderForm.phoneNumber.$invalid && placeOrderForm.phoneNumber.$touched, 'has-success': placeOrderForm.phoneNumber.$touched && placeOrderForm.phoneNumber.$valid}">
+                            <input ng-model="payer.phoneNumber" type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" name="phoneNumber" ng-required="required" />
+                          </div>
+                          <div class="col-xs-6" ng-class="{'has-error': placeOrderForm.emailAddress.$error.email || (placeOrderForm.emailAddress.$touched && placeOrderForm.emailAddress.$invalid), 'has-success': placeOrderForm.emailAddress.$valid && placeOrderForm.emailAddress.$touched}">
+                            <input ng-model="payer.emailAddress" type="email" class="form-control" id="emailAddress" placeholder="Email Address" name="emailAddress" ng-required="required" />
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm text-right">
+                        <div class="col-xs-12">
+                          <b>Your Total is: </b><span class="label label-default">{{getCartPrice() | currency}}</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <div class="col-md-6">
+                    <fieldset>
+                      <legend>Shipping Information</legend>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-6" ng-class="{'has-error': placeOrderForm.firstNameForDelivery.$invalid && placeOrderForm.firstNameForDelivery.$touched, 'has-success': placeOrderForm.firstNameForDelivery.$touched && placeOrderForm.firstNameForDelivery.$valid}">
+                            <input ng-model="receiver.firstName" type="text" class="form-control" id="firstNameForDelivery" placeholder="First name" name="firstNameForDelivery" ng-required="required" />
+                          </div>
+                          <div class="col-xs-6" ng-class="{'has-error': placeOrderForm.lastNameForDelivery.$invalid && placeOrderForm.lastNameForDelivery.$touched, 'has-success': placeOrderForm.lastNameForDelivery.$touched && placeOrderForm.lastNameForDelivery.$valid}">
+                            <input ng-model="receiver.lastName" type="text" class="form-control" id="lastNameForDelivery" placeholder="Last name" name="lastNameForDelivery" ng-required="required" />
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-12" ng-class="{'has-error': placeOrderForm.address1ForDelivery.$invalid && placeOrderForm.address1ForDelivery.$touched, 'has-success': placeOrderForm.address1ForDelivery.$touched && placeOrderForm.address1ForDelivery.$valid}">
+                            <input ng-model="receiver.address1" type="text" class="form-control" id="address1ForDelivery" placeholder="Address Line 1" name="address1ForDelivery" ng-required="required" />
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-12">
+                            <input ng-model="receiver.address2" type="text" class="form-control" id="address2ForDelivery" placeholder="Address Line 2" name="address2ForDelivery" />
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-5" ng-class="{'has-error': placeOrderForm.cityNameForDelivery.$invalid && placeOrderForm.cityNameForDelivery.$touched, 'has-success': placeOrderForm.cityNameForDelivery.$touched && placeOrderForm.cityNameForDelivery.$valid}">
+                            <input ng-model="receiver.cityName" type="text" class="form-control" id="cityNameForDelivery" placeholder="City" name="cityNameForDelivery" ng-required="required" />
+                          </div>
+                          <div class="col-xs-5" ng-class="{'has-error': placeOrderForm.countryNameForDelivery.$invalid && placeOrderForm.countryNameForDelivery.$touched, 'has-success': placeOrderForm.countryNameForDelivery.$touched && placeOrderForm.countryNameForDelivery.$valid}">
+                            <input ng-model="receiver.countryName" type="text" class="form-control" id="countryNameForDelivery" placeholder="Country" name="countryNameForDelivery" ng-required="required" />
+                          </div>
+                          <div class="col-xs-2">
+                            <input ng-model="receiver.zipCode" type="text" class="form-control" id="zipCodeForDelivery" name="zipCodeForDelivery" placeholder="Zip" />
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm">
+                          <div class="col-xs-6" ng-class="{'has-error': placeOrderForm.phoneNumberForDelivery.$invalid && placeOrderForm.phoneNumberForDelivery.$touched, 'has-success': placeOrderForm.phoneNumberForDelivery.$touched && placeOrderForm.phoneNumberForDelivery.$valid}">
+                            <input ng-model="receiver.phoneNumber" type="tel" class="form-control" id="phoneNumberForDelivery" placeholder="Phone Number" name="phoneNumberForDelivery" ng-required="required" />
+                          </div>
+                          <div class="col-xs-6">
+                              <input ng-model="deliveryDate.checked" type="checkbox" id="deliveryDate" />
+                              Choose delivery date
+                          </div>
+                      </div>
+                      <div class="form-group form-group-sm" ng-show="deliveryDate.checked">
+                          <div class="col-sm-4 col-xs-4">
+                            Year<select ng-value="year" ng-model="deliveryDate.year" class="form-control" id="deliveryDateYear" name="deliveryDateYear" ng-change="daysInMonth(deliveryDate.month, deliveryDate.year)" ng-options="year for year in years" ng-required="!deliveryDate.checked"></select>
+                          </div>
+                          <div class="col-sm-4 col-xs-6">
+                            Month<select ng-value="month" ng-model="deliveryDate.month" class="form-control" id="deliveryDateMonth" name="deliveryDateMonth" ng-change="daysInMonth(deliveryDate.month, deliveryDate.year)" ng-options="month.month for month in months" ng-required="required"></select>
+                          </div>
+                          <div class="col-sm-4 col-xs-2">
+                            Day <select ng-value="day" ng-model="deliveryDate.day" class="form-control" id="deliveryDateDat" name="deliveryDateDay" ng-options="day for day in days" ng-required="!deliveryDate.checked"></select>
+                          </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+              <div class="text-left"></div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel(placeOrderForm, payer)">Cancel</button>
+              <button type="submit" id="submitButton" class="btn btn-primary" ng-click="submit(payer, receiver, deliveryDate)" ng-disabled="placeOrderForm.$invalid">Place Order</button>
+              <div>Payer: {{payer|json}}<br>Receiver: {{receiver|json}}<br>Customer: {{customer|json}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
