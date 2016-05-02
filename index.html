@@ -140,154 +140,162 @@
       <h1 id="h12">Welcome to GULRUZ</h1>
       <h2>The place where you can order deliveries to Uzbekistan</h2>
       <br>
-      <p>Order presents or gifts from us from anywhere in globe<br>and get them delivered in any place in Uzbekistan</p>
+      <p>Order presents or gifts from anywhere in globe<br>and get them delivered to any place in Uzbekistan</p>
       <br>
       <a href="#home" class="btn btn-primary btn-lg" role="button">Learn how it works</a>
     </div>
   </div>
+  <div ng-app="categoriesApp">
+    <div  ng-controller="categoriesCtrl">
 
-  <div ng-app="categoriesApp"  ng-controller="categoriesCtrl">
-    <!--Navigation Bar-->
-    <nav class="navbar navbar-default" data-spy="affix" data-offset-top="600">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#intro">Gulruz.com</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#home">Home</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#itemsPage" ng-show="showItems">{{chosenCategory | uppercase}}</a></li>
-            <!-- <li><a href="#checkOut" ng-show="showCheckOut">Check Out</a></li> -->
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#checkOut">Shopping <span class="glyphicon glyphicon-shopping-cart"> <span class="badge">{{cartQuantity}}</span></span></a></li>
-            <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
-    <!--Explanation Part-->
-    <div id="home" class="container text-center">
-      <div class="row "></div>
-      <h1>This is how it works</h1><br>
-      <div class="row">
-        <div class="col-md-3 col-xs-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Order From US</div>
-            <div class="panel-body">
-              <span class="glyphicon glyphicon glyphicon glyphicon-shopping-cart logo"></span>
-            </div>
-            <div class="panel-footer">We have variety gift items that you can order</div>
+      <!--Navigation Bar-->
+      <nav class="navbar navbar-default" data-spy="affix" data-offset-top="600">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#intro">Gulruz.com</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#home">Home</a></li>
+              <li><a href="#categories">Categories</a></li>
+              <li><a href="#itemsPage" ng-show="showItems">{{chosenCategory | uppercase}}</a></li>
+              <!-- <li><a href="#checkOut" ng-show="showCheckOut">Check Out</a></li> -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#checkOut">Shopping <span class="glyphicon glyphicon-shopping-cart"> <span class="badge">{{cartQuantity}}</span></span></a></li>
+              <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+            </ul>
           </div>
         </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Select a Date</div>
-            <div class="panel-body">
-              <span class="glyphicon glyphicon-calendar logo"></span>
-            </div>
-            <div class="panel-footer">Select a date for your gift for delivery</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Delivery Made</div>
-            <div class="panel-body">
-              <span class="glyphicon glyphicon-plane logo"></span>
-            </div>
-            <div class="panel-footer">We will deliver your item to the person you want on a selected date</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Confirmation Sent</div>
-            <div class="panel-body">
-              <span class="glyphicon glyphicon-link logo"></span>
-            </div>
-            <div class="panel-footer">You will recive a confirmation and a pitcure of delivery</div>
-          </div>
-        </div>
-      </div>
-      <hr class="divider">
-    </div>
-
-    <!--Categories to Choose-->
-    
-    <div id="categories" class="container text-center">
-      <h2>Categories to Choose</h2><br>
-
-      <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="target in categoryNames">
-          <a class="btn" ng-click="categorySelected(target)" href="#itemsPage">
-            <div class="panel panel-default">
-              <div class="panel-heading txt-large">{{target | uppercase}}</div>
-              <div class="panel-body" style="padding: 0;">
-                <img src="img/{{target}}.jpg" class=" img-responsive">
+      </nav>
+      
+      <!--Explanation Part-->
+      <div id="home" class="container text-center">
+        <div class="row "></div>
+        <h1>This is how it works</h1><br>
+        <div class="row">
+          <div class="col-md-3 col-xs-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Order From US</div>
+              <div class="panel-body">
+                <span class="glyphicon glyphicon glyphicon glyphicon-shopping-cart logo"></span>
               </div>
+              <div class="panel-footer">We have variety gift items that you can order</div>
             </div>
-          </a>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Select a Date</div>
+              <div class="panel-body">
+                <span class="glyphicon glyphicon-calendar logo"></span>
+              </div>
+              <div class="panel-footer">Select a date for your gift for delivery</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Delivery Made</div>
+              <div class="panel-body">
+                <span class="glyphicon glyphicon-plane logo"></span>
+              </div>
+              <div class="panel-footer">We will deliver your item to the person you want on a selected date</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Confirmation Sent</div>
+              <div class="panel-body">
+                <span class="glyphicon glyphicon-link logo"></span>
+              </div>
+              <div class="panel-footer">You will recive a confirmation and a pitcure of delivery</div>
+            </div>
+          </div>
         </div>
-
         <hr class="divider">
       </div>
 
-      <script src="js_functions/categoriesApp.js"></script>
-      <script src="js_functions/categoriesCtrl.js"></script>
+      <!--Categories to Choose-->
+      <div id="categories" class="container text-center">
+        <h2>Categories to Choose</h2><br>
 
-      <div id="itemsPage" class="container-fluid text-center">
-        <h1>{{chosenCategory | uppercase}}</h1>
-        
-        <div class="row" ng-show="showItems">
-          <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6 col-xs-offset-0" ng-repeat="product in itemNames">
-            <div class="thumbnail">
-              <img src="img/paynet/dollar.png" alt="..." class="img-responsive" style="height: ;">
-              <div class="caption">
-                <h3>{{product.Title}}</h3>
-                <p><h4>{{product.Price | currency}}</h4></p>
-                <p><a ng-click="addToCart(product)" class="btn btn-primary" role="button">Add to Cart</a> <a href="#" class="btn btn-default" role="button">View Details</a></p>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="target in categoryNames track by target.CategoryID">
+            <a class="btn" ng-click="categorySelected(target)" href="#itemsPage">
+              <div class="panel panel-default">
+                <div class="panel-heading txt-large">{{target.CategoryName | uppercase}}</div>
+                <div class="panel-body" style="padding: 0;">
+                  <img src="img/{{target.CategoryName}}.jpg" class=" img-responsive">
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <hr class="divider">
+        </div>
+      </div>
+
+        <script src="js_functions/categoriesApp.js"></script>
+        <script src="js_functions/categoriesCtrl.js"></script>
+
+      <div id="itemsPage" class="container text-center">
+          <h1>{{chosenCategory | uppercase}}</h1>
+          
+          <div class="row" ng-show="showItems">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6 col-xs-offset-0" ng-repeat="item in itemNames track by item.ItemID">
+              <div class="thumbnail">
+                <img src="img/paynet/dollar.png" alt="..." class="img-responsive">
+                <div class="caption">
+                  <h3>{{item.Title}}</h3>
+                  <p><h4>{{item.Price | currency}}</h4></p>
+                  <p>
+                    <a ng-click="addToCart(item)" class="btn btn-primary" role="button">Add to Cart</a>
+                    <!-- <a href="#" class="btn btn-default" role="button">View Details</a> -->
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          <hr class="divider">
+      </div>
 
-        <hr class="divider">
+
+      <!-- Checking out part -->
+      <div id="checkOut" class="container-fluid" ng-show="showCheckOut">
+        <fieldset>
+          <legend>Items Information</legend>
+          <table class="table table-hover table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th style="width: 0.5%" class="text-right">#</th><th style="width: 75%">Title</th><th style="width: 5%">Price</th><th style="width: 5%">Quantity</th><th style="width: 7%">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="items in cart track by items.ItemID">
+                <td class="text-right">{{$index+1}}</td>
+                <td>{{items.Title}}</td>
+                <td>{{items.Price | currency}}</td>
+                <td><input type="number" value="{{items.Quantity}}" ng-model="items.Quantity" style="width: 40px" min="1" name="quantity"/></td>
+                <td><a ng-click="removeFromCart($index)" role="button">Remove</a></td>
+              </tr>
+              <tbody><tr style="background-color: white;"><th class="text-right" colspan="2">Total:</th>
+              <th>{{getCartPrice() | currency}}</th><th>
+              <a data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-primary" role="button">Check Out</a></th></tr></tbody>
+            </tbody>
+          </table>
+        </fieldset>
+        <div>Cart content: {{cart}}</div>
+        <!-- modal -->
+        <div ng-include="'checkOut.html'"></div>
       </div>
     </div>
-
-
-
-    <div id="checkOut" class="container-fluid" ng-show="showCheckOut">
-      <fieldset>
-        <legend>Items Information</legend>
-        <table class="table table-hover table-bordered table-condensed">
-          <thead>
-            <tr>
-              <th style="width: 0.5%" class="text-right">#</th><th style="width: 75%">Title</th><th style="width: 5%">Price</th><th style="width: 8%">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="items in cart">
-              <td class="text-right">{{$index+1}}</td>
-              <td>{{items.Title}}</td>
-              <td>{{items.Price | currency}}</td>
-              <td><a ng-click="removeFromCart($index)" class="" role="button">Remove</a></td>
-            </tr>
-            <tbody><tr style="background-color: white;"><th class="text-right" colspan="2">Total:</th>
-            <th>{{getCartPrice() | currency}}</th><th>
-            <a ng-click="" href="" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-primary" role="button">Check Out</a></th></tr></tbody>
-          </tbody>
-        </table>
-      </fieldset>
-
-      <!-- modal -->
-      <div ng-include="'checkOut.html'"></div>
+  
+    <div>
+      <!-- // <script src="checkOutCtrl.js"></script> -->
     </div>
   </div>
 
