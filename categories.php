@@ -16,7 +16,7 @@
     	die("Connection failed: " .$conn->connect_error);
         exit();
 	}
-
+	define('CategoryID', 'CategoryID');
 	// Setting query to get items
 	$sql = "SELECT ItemID, CategoryID, Title, Price FROM items WHERE CategoryID = " .$selectedCategory[CategoryID];
 	$result = $GLOBALS['conn']->query($sql);

@@ -22,11 +22,12 @@ app.controller('categoriesCtrl', function($scope, $http)
 	];
 
 	$scope.categoryNames = [];
-	$http.get("categoryNames.php").then(function (response) {
+    $http.get("categoryNames.php").then(function (response) {
     	$scope.categoryNames = response.data;
     });
 
-  //   $.ajax({
+
+     //$.ajax({
 		// 	url: 'categoryNames.php',
 		// 	success: function (result) {
 		// 		$scope.categoryNames = result;

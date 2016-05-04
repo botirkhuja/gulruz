@@ -2,6 +2,8 @@
 	header("Access-Control-Allow-Origin: *");
 	header("Content-Type: application/json; charset=UTF-8");
 
+
+
 	$servername = "localhost";
   	$username = "root";
   	$password = "admin";
@@ -10,14 +12,21 @@
   	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
+
+
 	// Check connection
 	if ($conn->connect_errno) {
+
     	die("Connection failed: " .$conn->connect_error);
+
         exit();
+
+
 	}
 
 	// Setting query to get items
 	$sql = "SELECT CategoryID, CategoryName FROM categories";
+
 
 	// Obtaining results
 	$results = $GLOBALS['conn']->query($sql);
@@ -26,6 +35,7 @@
 	// Create an array variable to store data
 	$rows = array();
 
+    define('CategoryID', 'CategoryID');
 	// Store the result as array of objects
 	while ($rs = $results->fetch_array(MYSQLI_ASSOC)) {
 		$sql = "";
@@ -35,6 +45,11 @@
 			$rows[] = $rs;
 		}
 	}
+
+	$outp = print_r($rows, true);
+                    	$myfile = fopen("testfile.txt", "w");
+                        	fwrite($myfile, $outp);
+                        	fclose($myfile);
 
 	// Close result sets
 	$results2->close();
